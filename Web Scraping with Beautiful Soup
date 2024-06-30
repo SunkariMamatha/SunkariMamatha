@@ -1,0 +1,18 @@
+def main():
+All_articles = []
+Page_number = 1
+While True:
+# Update the URL to reflect the current page
+url = f”{base_url}/page/{page_number}”
+html = get_html(url)
+articles = parse_html(html)
+
+if not articles:
+break # Break the loop if no more articles are found
+
+all_articles.extend(articles)
+page_number += 1
+
+# Save the data to CSV
+Save_to_csv(all_articles)
+
